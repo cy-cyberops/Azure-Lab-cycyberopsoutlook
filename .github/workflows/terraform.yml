@@ -56,7 +56,14 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: production
+    env:
+      ARM_CLIENT_ID: ${secrets.ENTRAID_CLIENT_ID}
+      ARM_CLIENT_SECRET: ${secrets.ENTRAID_CLIENT_SECRETVALUE}
+      ARM_SUBSCRIPTION_ID: ${secrets.ENTRAID_SUBSCRIPTION_ID}
+      ARM_TENANT_ID: ${secrets.ENTRAID_TENANT_ID}
+
+      environment: production
+    # environment: production
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -72,7 +79,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        cli_config_credentials_token: ${secrets.TF_API_TOKEN}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
