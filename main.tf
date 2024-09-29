@@ -51,14 +51,6 @@ resource "azurerm_resource_group" "rg_irtech_prod" {
   }
 
 }
-resource "azurerm_resource_group" "rg_hc_prod" {
-  name     = "rg-hc-prod"
-  location = "East US"
-  tags = {
-    environment = "prod"
-  }
-
-}
 
 resource "azurerm_virtual_network" "vnet_desco" {
   name                = "vnet-desco"
