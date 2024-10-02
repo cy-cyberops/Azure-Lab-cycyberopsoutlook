@@ -7,14 +7,6 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  # Configuration options
-  subscription_id = "6bf4720d-ba5b-46c2-a93a-c5c109d0399f"
-  client_id       = "ce348646-a07e-40a4-824e-e1f398dd88fd"
-  #client_secret   = "pAm8Q~mKNPfJJaZfJlhVDRhjyhSHDqHTn8OtHdqT"
-  tenant_id       = "768ae5da-7689-4480-9bcd-65e61ea05f6a"
-  features {}
-}
 
 resource "azurerm_resource_group" "rg_irtech" {
   name     = "rg-irtech"
