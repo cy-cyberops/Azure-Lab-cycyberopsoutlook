@@ -57,10 +57,10 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     env:
-      ARM_CLIENT_ID: ${secrets.ENTRAID_CLIENT_ID}
-      ARM_CLIENT_SECRET: ${secrets.ENTRAID_CLIENT_SECRETVALUE}
-      ARM_SUBSCRIPTION_ID: ${secrets.ENTRAID_SUBSCRIPTION_ID}
-      ARM_TENANT_ID: ${secrets.ENTRAID_TENANT_ID}
+      ARM_CLIENT_ID: ${{ secrets.ENTRAID_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ENTRAID_CLIENT_SECRETVALUE }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ENTRAID_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ENTRAID_TENANT_ID }}
 
       environment: production
     # environment: production
