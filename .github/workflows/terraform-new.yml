@@ -57,10 +57,10 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     env:
-      ARM_CLIENT_ID: ${{ secrets.ENTRAID_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ENTRAID_CLIENT_SECRETVALUE }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ENTRAID_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ENTRAID_TENANT_ID }}
+      ARM_CLIENT_ID: ${ secrets.ENTRAID_CLIENT_ID }
+      ARM_CLIENT_SECRET: ${ secrets.ENTRAID_CLIENT_SECRETVALUE }
+      ARM_SUBSCRIPTION_ID: ${ secrets.ENTRAID_SUBSCRIPTION_ID }
+      ARM_TENANT_ID: ${ secrets.ENTRAID_TENANT_ID }
 
       environment: production
     # environment: production
@@ -87,11 +87,11 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check Terraform/main.tf
+      run: terraform fmt -check 
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform -chdir=Terraform/main.tf -input=false  
+      run: terraform  -input=false  plan
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
